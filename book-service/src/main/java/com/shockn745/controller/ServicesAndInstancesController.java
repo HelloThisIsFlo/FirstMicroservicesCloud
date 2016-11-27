@@ -4,6 +4,7 @@ package com.shockn745.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,12 +17,12 @@ import java.util.List;
 @RestController
 public class ServicesAndInstancesController {
 
-    private final DiscoveryClient discoveryClient;
+    @Autowired
+    DiscoveryClient discoveryClient;
 
     @Autowired
-    public ServicesAndInstancesController(DiscoveryClient discoveryClient) {
-        this.discoveryClient = discoveryClient;
-    }
+    LoadBalancerClient loadBalancerClient;
+
 
     @RequestMapping(value = "services")
     public Services displayServicesInstances() {
@@ -33,6 +34,11 @@ public class ServicesAndInstancesController {
     @RequestMapping(value = "instances/{serviceName}")
     public List<ServiceInstance> displayInstanceForService(@PathVariable String serviceName) {
         return discoveryClient.getInstances(serviceName);
+    }
+
+    @RequestMapping(value = "loadbalancer/{serviceName}")
+    public ServiceInstance loadBalancer(@PathVariable String serviceName) {
+        return loadBalancerClient.choose(serviceName);
     }
 
 

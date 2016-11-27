@@ -3,6 +3,7 @@ package com.shockn745;
 import com.shockn745.model.Book;
 import com.shockn745.model.Person;
 import com.shockn745.model.Review;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +12,7 @@ import java.util.List;
 /**
  * @author Kempenich Florian
  */
+@Component
 public class Util {
 
 

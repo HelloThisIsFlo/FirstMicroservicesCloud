@@ -24,6 +24,7 @@ public class ReviewsController {
 
     @RequestMapping(value = "/{bookId}")
     public List<Review> getReviewForBookId(@PathVariable int bookId) {
+        System.out.println("Get reviews for book: " + bookId);
         return util.getReviewsForBookId(bookId);
     }
 }
