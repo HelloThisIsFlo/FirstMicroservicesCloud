@@ -1,11 +1,9 @@
 package com.shockn745;
 
-import com.shockn745.model.Book;
 import com.shockn745.model.Person;
 import com.shockn745.model.Review;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,12 +11,10 @@ import java.util.List;
  */
 public class Util {
 
-
     private Person florian;
     private Person thomas;
     private Person silvia;
 
-    private List<Book> books;
     private List<Review> reviews;
 
     public Util() {
@@ -26,13 +22,19 @@ public class Util {
     }
 
     private void initFakeListBooks() {
-        books = new ArrayList<>();
-        books.add(new Book("How to build a microservice", 1, Collections.emptyList()));
-        books.add(new Book("Frankenstein", 2, Collections.emptyList()));
+        florian = new Person("Flo", "Patrick", 27);
+        thomas = new Person("Thomas", "Dupuis", 56);
+        silvia = new Person("Silvia", "Burdai", 14);
+
+        reviews = new ArrayList<>();
+        reviews.add(new Review(3, florian));
+        reviews.add(new Review(5, silvia));
+        reviews.add(new Review(4, thomas));
+
     }
 
-
-    public List<Book> getBooks() {
-        return books;
+    public List<Review> getReviewsForBookId(int bookId) {
+        return reviews;
     }
+
 }
