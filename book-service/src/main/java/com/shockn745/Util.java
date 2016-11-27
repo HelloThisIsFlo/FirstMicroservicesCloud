@@ -13,14 +13,18 @@ import java.util.List;
 public class Util {
 
 
-    private final Person florian;
-    private final Person thomas;
-    private final Person silvia;
+    private Person florian;
+    private Person thomas;
+    private Person silvia;
 
-    private final List<Book> books;
-    private final List<Review> reviews;
+    private List<Book> books;
+    private List<Review> reviews;
 
     public Util() {
+        initFakeListBooks();
+    }
+
+    private void initFakeListBooks() {
         florian = new Person("Flo", "Patrick", 27);
         thomas = new Person("Thomas", "Dupuis", 56);
         silvia = new Person("Silvia", "Burdai", 14);
@@ -31,9 +35,8 @@ public class Util {
         reviews.add(new Review(4, thomas));
 
         books = new ArrayList<>();
-        books.add(new Book("How to build a microservice", 23, reviews));
-        books.add(new Book("Frankenstein", 44, reviews));
-
+        books.add(new Book("How to build a microservice", 1, reviews));
+        books.add(new Book("Frankenstein", 2, reviews));
     }
 
 
