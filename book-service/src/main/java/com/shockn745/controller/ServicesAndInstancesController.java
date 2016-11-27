@@ -1,4 +1,4 @@
-package com.shockn745;
+package com.shockn745.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,12 @@ import java.util.List;
  * @author Kempenich Florian
  */
 @RestController
-public class ServicesInstancesController {
+public class ServicesAndInstancesController {
 
     private final DiscoveryClient discoveryClient;
 
     @Autowired
-    public ServicesInstancesController(DiscoveryClient discoveryClient) {
+    public ServicesAndInstancesController(DiscoveryClient discoveryClient) {
         this.discoveryClient = discoveryClient;
     }
 

@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class SimpleServiceApplication {
+public class BookServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SimpleServiceApplication.class, args);
+        SpringApplication.run(BookServiceApplication.class, args);
     }
 
     @Bean
